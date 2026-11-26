@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#26242c">
+<meta name="etrom-runtime" content="pages-demo"><meta name="robots" content="noindex"><title>Conversa Etrom · Chat e acervo</title><link rel="icon" href="./mark.svg" type="image/svg+xml"><link rel="stylesheet" href="./app.css"><script src="./app.js" defer></script>
+</head>
+<body>
+<svg aria-hidden="true" class="symbols" xmlns="http://www.w3.org/2000/svg">
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H4l1.7-3.8A8.5 8.5 0 1 1 21 11.5Z"/><path d="M8 11h8m-8 4h5"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5h6a2 2 0 0 1 2 2v13a3 3 0 0 0-2-1H4zm16 0h-6a2 2 0 0 0-2 2v13a3 3 0 0 1 2-1h6Z"/></symbol>
+<symbol id="i-receipt" viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2Zm3 5h6m-6 4h6m-6 4h3"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 5 5"/></symbol>
+<symbol id="i-quote" viewBox="0 0 24 24"><path d="M10 7c-3 0-4 2-4 5h4v5H5v-5m14-5c-3 0-4 2-4 5h4v5h-5v-5"/></symbol>
+<symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+<symbol id="i-external" viewBox="0 0 24 24"><path d="M13 5h6v6m0-6-9 9m8-1v6H5V6h6"/></symbol>
+<symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="8" cy="7" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="10" cy="17" r="2"/></symbol>
+<symbol id="i-photo" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m4 17 5-5 4 4 3-3 4 4"/><circle cx="15.5" cy="9" r="1.4"/></symbol>
+<symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0m-7 7v3m-3 0h6"/></symbol>
+<symbol id="i-file" viewBox="0 0 24 24"><path d="m20 9-8.5 8.5a4 4 0 1 1-5.7-5.6l8.6-8.6a2.5 2.5 0 0 1 3.5 3.5L9.4 15.3a1 1 0 0 1-1.4-1.4l7-7"/></symbol>
+<symbol id="i-send" viewBox="0 0 24 24"><path d="m21 3-7 18-3.8-7.2L3 10Zm0 0L10.2 13.8"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+<symbol id="i-audio" viewBox="0 0 24 24"><path d="M5 10v4m4-7v10m3-14v18m4-14v10m4-7v4"/></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M5 5l14 14M19 5 5 19"/></symbol>
+<symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/></symbol>
+<symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15M10 10v7m4-7v7"/></symbol>
+</svg>
+<header class="mast">
+  <div class="brand"><img src="./mark.svg" alt="" width="45" height="45"><div><h1>Conversa<span> Etrom</span></h1><small>CHAT &amp; ACERVO DE MEMES</small></div></div>
+  <div class="mast-right"><span class="connection" id="connection">Verificando conexão</span><button class="icon dark-icon" type="button" id="open-settings" title="Configurações" aria-label="Configurações"><svg><use href="#i-settings"/></svg></button></div>
+</header>
+<main class="workspace">
+  <aside class="sidebar" aria-label="Navegação e referências">
+    <p class="eyebrow">SALA DE CONVERSA</p>
+    <button class="side-link selected" type="button" data-mode="chat" aria-pressed="true"><svg><use href="#i-chat"/></svg><span>Nora <small>Personagem fictícia</small></span><b class="mini-badge">IA</b></button>
+    <button class="side-link" type="button" data-mode="classics" aria-pressed="false"><svg><use href="#i-book"/></svg><span>Clássicos <small>Histórias com fonte</small></span><svg class="chevron"><use href="#i-chevron"/></svg></button>
+    <div class="side-break"></div>
+    <p class="eyebrow">DO ACERVO</p>
+    <div id="quick-classics" class="quick-classics"></div>
+    <button type="button" class="side-link video-link" id="open-videos"><svg><use href="#i-external"/></svg><span>Fontes e vídeos</span></button>
+    <footer class="side-footer"><span class="signal" aria-hidden="true">✳</span><span>Projeto não oficial.<br>Sem vínculo com a pessoa retratada nas fontes.</span></footer>
+  </aside>
+  <section class="chat" aria-label="Conversa">
+    <header class="chat-top"><div class="identity-mark" id="identity-mark" aria-hidden="true">N</div><div class="identity"><h2 id="identity-name">Nora</h2><p id="identity-note">Personagem fictícia · Respostas geradas por IA</p></div><nav class="mobile-nav" aria-label="Alternar conversa"><button class="icon" type="button" data-mode="chat" aria-pressed="true" aria-label="Nora"><svg><use href="#i-chat"/></svg></button><button class="icon" type="button" data-mode="classics" aria-pressed="false" aria-label="Clássicos"><svg><use href="#i-book"/></svg></button></nav></header>
+    <div class="timeline" id="timeline" tabindex="0" role="region" aria-label="Histórico"><div class="feed" id="feed" role="log" aria-live="polite"></div></div>
+    <footer class="compose-area">
+      <div id="suggestions" class="suggestions" aria-label="Sugestões"></div>
+      <p id="error" class="notice" role="alert" hidden></p>
+      <div id="pending" class="pending" hidden></div>
+      <form class="composer" id="composer">
+        <div class="media-buttons" id="media-buttons">
+          <button class="icon" id="photo-button" type="button" title="Anexar foto" aria-label="Anexar foto"><svg><use href="#i-photo"/></svg></button>
+          <button class="icon" id="audio-button" type="button" title="Anexar áudio" aria-label="Anexar áudio"><svg><use href="#i-file"/></svg></button>
+          <button class="icon" id="mic-button" type="button" title="Gravar áudio" aria-label="Gravar áudio"><svg><use href="#i-mic"/></svg></button>
+        </div>
+        <input type="file" id="photo-file" accept="image/jpeg,image/png,image/webp" hidden><input type="file" id="audio-file" accept="audio/*,.mp3,.m4a,.ogg,.webm,.wav,.flac" hidden>
+        <textarea id="prompt" aria-label="Mensagem" placeholder="Escreva uma mensagem…" maxlength="4000" rows="1"></textarea>
+        <button type="submit" class="send" title="Enviar mensagem" aria-label="Enviar mensagem" id="send"><svg><use href="#i-send"/></svg></button>
+      </form>
+      <div class="compose-foot"><span id="privacy-hint">Histórico neste navegador</span><label id="output-label" for="output"><span>Responder em</span><select id="output"><option value="auto">Automático</option><option value="text">Texto</option><option value="voice">Áudio</option><option value="image">Imagem</option></select></label></div>
+    </footer>
+  </section>
+</main>
+<dialog id="settings"><div class="dialog-content"><header><h2>Configurações</h2><form method="dialog"><button class="icon" aria-label="Fechar configurações"><svg><use href="#i-close"/></svg></button></form></header><label for="provider">Modelo de texto</label><select id="provider"><option value="demo">Demo local</option></select><p id="capabilities"></p><p>Esta é uma demonstração estática. O chat não envia suas mensagens ou anexos a servidores; não há análise de fotos, transcrição de áudio ou geração por API. A opção de ouvir exige uma voz local em português. Não inclua dados sensíveis.</p><button class="dialog-action" type="button" id="clear"><svg><use href="#i-trash"/></svg> Limpar as duas conversas</button><div id="confirm-clear" hidden><p>Apagar todas as mensagens salvas neste navegador?</p><button class="dialog-action" type="button" id="clear-yes">Sim, apagar</button><button class="dialog-action" type="button" id="clear-no">Cancelar</button></div></div></dialog>
+<dialog id="videos"><div class="dialog-content"><header><h2>Fontes e vídeos</h2><form method="dialog"><button class="icon" aria-label="Fechar fontes"><svg><use href="#i-close"/></svg></button></form></header><p>Links públicos para consulta. Não são gravações usadas para gerar a voz do chat.</p><ul class="video-list" id="video-list"></ul></div></dialog>
+</body>
+</html>
